@@ -1,9 +1,9 @@
-from tensorflow.keras.models import load_model 
+from tensorflow.keras.models import load_model
 from PIL import Image, ImageOps  
 import numpy as np
 def imagerecognise(uploadedfile,modelpath,labelpath):
     np.set_printoptions(suppress=True)
-    model = load_model(modelpath, compile=False)
+    model = load_model(modelpath)
     class_names = open(labelpath, "r").readlines()
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     image = Image.open(uploadedfile).convert("RGB")
